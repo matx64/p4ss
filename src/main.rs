@@ -1,5 +1,5 @@
 use clap::Parser;
-use p4ss::{get_item, set_item, Command};
+use p4ss::{delete_item, get_item, set_item, Command};
 
 #[derive(Parser, Debug)]
 #[command(name = "p4ss")]
@@ -18,6 +18,9 @@ fn main() {
         }
         Command::Set(args) => {
             set_item(args.name, args.login, args.password);
+        }
+        Command::Del(args) => {
+            delete_item(args.name);
         }
     }
 }

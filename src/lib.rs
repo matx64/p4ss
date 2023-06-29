@@ -4,6 +4,7 @@ use clap::{Args, Subcommand};
 pub enum Command {
     Get(GetCommand),
     Set(SetCommand),
+    Del(DeleteCommand),
 }
 
 #[derive(Debug, Args)]
@@ -24,6 +25,12 @@ pub struct SetCommand {
     pub password: String,
 }
 
+#[derive(Debug, Args)]
+pub struct DeleteCommand {
+    #[arg()]
+    pub name: String,
+}
+
 #[derive(Debug)]
 pub struct VaultItem {
     pub login: String,
@@ -35,5 +42,9 @@ pub fn get_item(_name: String) {
 }
 
 pub fn set_item(_name: String, _login: String, _password: String) {
+    todo!()
+}
+
+pub fn delete_item(_name: String) {
     todo!()
 }
